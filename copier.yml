@@ -1,0 +1,49 @@
+_templates_suffix: ""
+_tasks:
+  - "git init"
+  - "hatch env prune"
+  - "hatch run test"
+_jinja_extensions:
+  - jinja2_shell_extension.ShellExtension
+_exclude:
+  - "copier.yaml"
+  - "copier.yml"
+  - "~*"
+  - "*.py[co]"
+  - "__pycache__"
+  - ".git"
+  - ".DS_Store"
+  - ".svn"
+  - "README.md"
+  - "LICENSE.txt"
+  
+project_name:
+  type: str
+  help: human readable name of the project
+
+slug_name:
+  type: str
+  help: python import name
+  default: "{{ project_name|lower|replace(' ', '-') }}"
+
+cli:
+  type: bool
+  help: whether use command line interface or not (click)
+  default: true
+
+description:
+  type: str
+  default: "Python library{% if cli %} and command-line utility{% endif %} for "
+
+username:
+  type: str
+  default: "{{'git config --get user.name'|shell|trim}}"
+
+email:
+  type: str
+  default: "{{'git config --get user.email'|shell|trim}}"
+
+python_version:
+  type: int
+  help: minimal support python version 3.(?).*, only mid version
+  default: 10

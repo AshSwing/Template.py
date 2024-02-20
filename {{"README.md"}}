@@ -1,0 +1,29 @@
+# {{project_name}}
+
+[![PyPI - Version](https://img.shields.io/pypi/v/{{project_name}}.svg)](https://pypi.org/project/{{project_name}})
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{project_name}}.svg)](https://pypi.org/project/{{project_name}})
+
+{{description}}
+
+## 🖥️ Installation
+
+```console
+pip install {{project_name}}
+```
+
+## 🛠️ Development
+
+```console
+hatch shell                 # enter into a virtual environment
+hatch build                 # build the project
+hatch install               # reinstall in the default environment
+hatch run unittest          # run unittest
+hatch run integration_test  # run integration test (pytest)
+hatch run test              # run both unittest and integration test
+```
+
+## 🐍 Usage
+
+```python
+import {{slug_name}}
+```
